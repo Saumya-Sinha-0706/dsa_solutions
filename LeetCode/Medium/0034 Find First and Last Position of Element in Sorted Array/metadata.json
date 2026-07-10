@@ -1,0 +1,10 @@
+{
+  "code": "class Solution {\n    public int[] searchRange(int[] nums, int target) {\n\n        int[] ans = {-1, -1};\n\n        // Find first occurrence\n        int start = 0, end = nums.length - 1;\n\n        while (start <= end) {\n            int mid = start + (end - start) / 2;\n\n            if (nums[mid] == target) {\n                ans[0] = mid;\n                end = mid - 1;\n            } else if (nums[mid] < target) {\n                start = mid + 1;\n            } else {\n                end = mid - 1;\n            }\n        }\n\n        // Find last occurrence\n        start = 0;\n        end = nums.length - 1;\n\n        while (start <= end) {\n            int mid = start + (end - start) / 2;\n\n            if (nums[mid] == target) {\n                ans[1] = mid;\n                start = mid + 1;\n            } else if (nums[mid] < target) {\n                start = mid + 1;\n            } else {\n                end = mid - 1;\n            }\n        }\n\n        return ans;\n    }\n}",
+  "difficulty": "Medium",
+  "language": "java",
+  "platform": "LeetCode",
+  "problemName": "Find First and Last Position of Element in Sorted Array",
+  "problemNumber": "34",
+  "submissionDate": "2026-07-10T18:51:38.769Z",
+  "submissionUrl": "https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/"
+}
