@@ -1,0 +1,10 @@
+{
+  "code": "class Solution {\n    public boolean search(int[] nums, int target) {\n        int low = 0;\n        int high = nums.length - 1;\n\n        // Continue while there is still a valid search range\n        while (low <= high) {\n\n            // Calculate middle index\n            int mid = (low + high) / 2;\n\n            // If target found, return index\n            if (nums[mid] == target)\n                return true;\n\n            // If left part is sorted\n            if (nums[low] <= nums[mid]) {\n\n                // If target lies within sorted left part\n                if (nums[low] <= target && target < nums[mid]) {\n                    high = mid - 1;\n                }\n                // Else, search in right half\n                else {\n                    low = mid + 1;\n                }\n            }\n\n            // Else, right part is sorted\n            else {\n\n                // If target lies within sorted right part\n                if (nums[mid] < target && target <= nums[high]) {\n                    low = mid + 1;\n                }\n                // Else, search in left half\n                else {\n                    high = mid - 1;\n                }\n            }\n        }\n\n        // Target not found\n        return false;\n    }\n}",
+  "difficulty": "Medium",
+  "language": "java",
+  "platform": "LeetCode",
+  "problemName": "Search in Rotated Sorted Array II",
+  "problemNumber": "81",
+  "submissionDate": "2026-07-11T18:14:30.145Z",
+  "submissionUrl": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/"
+}
