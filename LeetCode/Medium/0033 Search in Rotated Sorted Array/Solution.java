@@ -16,17 +16,16 @@ class Solution {
             
             if (nums[low] <= nums[mid]) {
 
-                // If target lies within sorted left part
                 if (nums[low] <= target && target < nums[mid]) {
                     high = mid - 1;
                 }
-                // Else, search in right half
+                
                 else {
                     low = mid + 1;
                 }
             }
 
-            // Else, right part is sorted
+            
             else {
 
                 // If target lies within sorted right part
