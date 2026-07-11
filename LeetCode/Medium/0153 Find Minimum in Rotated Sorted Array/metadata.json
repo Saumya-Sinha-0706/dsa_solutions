@@ -1,10 +1,10 @@
 {
-  "code": "class Solution {\n    public int findMin(int[] nums) {\n        int min =  nums[0];\n        for(int i =1; i<nums.length; i++){\n            if(nums[i]<min)\n            min = nums[i];\n        }\n        return min;\n    }\n}",
+  "code": "class Solution {\n    public int findMin(int[] nums) {\n        int low = 0, high = nums.length - 1;\n\n        \n        while (low < high) {\n\n            \n            int mid = low + (high - low) / 2;\n\n            \n            if (nums[mid] > nums[high]) {\n\n        \n                low = mid + 1;\n\n            } else {\n\n                // Minimum lies in left half (including mid)\n                high = mid;\n            }\n        }\n\n        // Return the minimum element\n        return nums[low];\n    }\n}",
   "difficulty": "Medium",
   "language": "java",
   "platform": "LeetCode",
   "problemName": "Find Minimum in Rotated Sorted Array",
   "problemNumber": "153",
-  "submissionDate": "2026-07-11T18:34:51.656Z",
-  "submissionUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/submissions/2064203900/"
+  "submissionDate": "2026-07-11T18:36:49.369Z",
+  "submissionUrl": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/"
 }

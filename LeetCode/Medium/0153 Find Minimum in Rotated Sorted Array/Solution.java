@@ -1,10 +1,27 @@
 class Solution {
     public int findMin(int[] nums) {
-        int min =  nums[0];
-        for(int i =1; i<nums.length; i++){
-            if(nums[i]<min)
-            min = nums[i];
+        int low = 0, high = nums.length - 1;
+
+        
+        while (low < high) {
+
+            
+            int mid = low + (high - low) / 2;
+
+            
+            if (nums[mid] > nums[high]) {
+
+        
+                low = mid + 1;
+
+            } else {
+
+                // Minimum lies in left half (including mid)
+                high = mid;
+            }
         }
-        return min;
+
+        // Return the minimum element
+        return nums[low];
     }
 }
