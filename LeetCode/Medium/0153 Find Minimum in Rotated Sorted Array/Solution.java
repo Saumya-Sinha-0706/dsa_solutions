@@ -10,18 +10,14 @@ class Solution {
 
             
             if (nums[mid] > nums[high]) {
-
-        
                 low = mid + 1;
 
             } else {
-
-                // Minimum lies in left half (including mid)
                 high = mid;
             }
         }
 
-        // Return the minimum element
+        
         return nums[low];
     }
 }
