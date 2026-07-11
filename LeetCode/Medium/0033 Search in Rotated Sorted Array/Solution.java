@@ -9,7 +9,7 @@ class Solution {
             
             int mid = (low + high) / 2;
 
-            /
+            
             if (nums[mid] == target)
                 return mid;
 
@@ -28,11 +28,11 @@ class Solution {
             
             else {
 
-                // If target lies within sorted right part
+                
                 if (nums[mid] < target && target <= nums[high]) {
                     low = mid + 1;
                 }
-                // Else, search in left half
+                
                 else {
                     high = mid - 1;
                 }
