@@ -1,33 +1,12 @@
 class Solution {
-    public int singleNonDuplicate(int[] arr) {
-        int n = arr.length;
+    public int singleNonDuplicate(int[] nums) {
+        int n = nums.length;
 
-        // If array has only one element, return it
-        if (n == 1) return arr[0];
-
-        // Loop through the array
-        for (int i = 0; i < n; i++) {
-
-            // Check if it's the first element and not equal to the next
-            if (i == 0) {
-                if (arr[i] != arr[i + 1])
-                    return arr[i];
-            }
-
-            // Check if it's the last element and not equal to the previous
-            else if (i == n - 1) {
-                if (arr[i] != arr[i - 1])
-                    return arr[i];
-            }
-
-            // Check if the current element is not equal to both neighbors
-            else {
-                if (arr[i] != arr[i - 1] && arr[i] != arr[i + 1])
-                    return arr[i];
-            }
+        int ans = 0;
+        for(int i = 0; i< n; i++){
+            ans = ans^nums[i];
         }
-
-        // Dummy return if no element found
-        return -1;
+        return ans;
+        
     }
 }
