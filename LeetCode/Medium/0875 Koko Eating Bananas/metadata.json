@@ -1,10 +1,10 @@
 {
-  "code": "class Solution {\n    \n    private int calculateTotalHours(int[] piles, int speed) {\n        int totalH = 0;\n        for (int bananas : piles) {\n            totalH += (int)Math.ceil((double)bananas / speed);\n        }\n        return totalH;\n    }\n\n    \n    public int minEatingSpeed(int[] piles, int h) {\n        \n        int maxPile = Arrays.stream(piles).max().getAsInt();\n\n        \n        int low = 1, high = maxPile;\n        int ans = maxPile;\n\n        \n        while (low <= high) {\n            int mid = (low + high) / 2;\n            int totalH = calculateTotalHours(piles, mid);\n\n            \n            if (totalH <= h) {\n                ans = mid;\n                high = mid - 1;\n            }\n            \n            else {\n                low = mid + 1;\n            }\n        }\n        return ans;\n    }\n}",
+  "code": "class Solution {\n    \n    private long calculateTotalHours(int[] piles, int speed) {\n        long totalH = 0;\n        for (int bananas : piles) {\n            totalH += (long)Math.ceil((double)bananas / speed);\n        }\n        return totalH;\n    }\n\n    \n    public int minEatingSpeed(int[] piles, int h) {\n        \n        int maxPile = Arrays.stream(piles).max().getAsInt();\n\n        \n        int low = 1, high = maxPile;\n        int ans = maxPile;\n\n        \n        while (low <= high) {\n            int mid = (low + high) / 2;\n            long totalH = calculateTotalHours(piles, mid);\n\n            \n            if (totalH <= h) {\n                ans = mid;\n                high = mid - 1;\n            }\n            \n            else {\n                low = mid + 1;\n            }\n        }\n        return ans;\n    }\n}",
   "difficulty": "Medium",
   "language": "java",
   "platform": "LeetCode",
   "problemName": "Koko Eating Bananas",
   "problemNumber": "875",
-  "submissionDate": "2026-07-14T18:56:46.950Z",
-  "submissionUrl": "https://leetcode.com/problems/koko-eating-bananas/submissions/2067802798/"
+  "submissionDate": "2026-07-14T18:58:12.011Z",
+  "submissionUrl": "https://leetcode.com/problems/koko-eating-bananas/submissions/2067804564/"
 }

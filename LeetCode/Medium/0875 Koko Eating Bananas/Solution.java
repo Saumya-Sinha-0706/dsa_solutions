@@ -1,9 +1,9 @@
 class Solution {
     
-    private int calculateTotalHours(int[] piles, int speed) {
-        int totalH = 0;
+    private long calculateTotalHours(int[] piles, int speed) {
+        long totalH = 0;
         for (int bananas : piles) {
-            totalH += (int)Math.ceil((double)bananas / speed);
+            totalH += (long)Math.ceil((double)bananas / speed);
         }
         return totalH;
     }
@@ -20,7 +20,7 @@ class Solution {
         
         while (low <= high) {
             int mid = (low + high) / 2;
-            int totalH = calculateTotalHours(piles, mid);
+            long totalH = calculateTotalHours(piles, mid);
 
             
             if (totalH <= h) {
