@@ -1,10 +1,10 @@
 {
-  "code": "class Solution {\n    // Function to calculate total hours at given speed\n    private int calculateTotalHours(int[] piles, int speed) {\n        int totalH = 0;\n        for (int bananas : piles) {\n            totalH += (int)Math.ceil((double)bananas / speed);\n        }\n        return totalH;\n    }\n\n    // Function to find minimum eating speed\n    public int minEatingSpeed(int[] piles, int h) {\n        // Find maximum element\n        int maxPile = Arrays.stream(piles).max().getAsInt();\n\n        // Initialize low and high pointers\n        int low = 1, high = maxPile;\n        int ans = maxPile;\n\n        // Binary search on answer space\n        while (low <= high) {\n            int mid = (low + high) / 2;\n            int totalH = calculateTotalHours(piles, mid);\n\n            // If possible, try smaller speed\n            if (totalH <= h) {\n                ans = mid;\n                high = mid - 1;\n            }\n            // Otherwise, try larger speed\n            else {\n                low = mid + 1;\n            }\n        }\n        return ans;\n    }\n}",
+  "code": "class Solution {\n    // Function to calculate total hours at given speed\n    private int calculateTotalHours(int[] piles, int speed) {\n        int totalH = 0;\n        for (int bananas : piles) {\n            totalH += (int)Math.ceil((double)bananas / speed);\n        }\n        return totalH;\n    }\n\n    // Function to find minimum eating speed\n    public int minEatingSpeed(int[] piles, int h) {\n        // Find maximum element\n        int maxPile = Arrays.stream(piles).max().getAsInt();\n\n        // Initialize low and high pointers\n        int low = 1, high = maxPile;\n        int ans = maxPile;\n\n        // Binary search on answer space\n        while (low <= high) {\n            int mid = low + (high - low) / 2;\n            int totalH = calculateTotalHours(piles, mid);\n\n            // If possible, try smaller speed\n            if (totalH <= h) {\n                ans = mid;\n                high = mid - 1;\n            }\n            // Otherwise, try larger speed\n            else {\n                low = mid + 1;\n            }\n        }\n        return ans;\n    }\n}",
   "difficulty": "Medium",
   "language": "java",
   "platform": "LeetCode",
   "problemName": "Koko Eating Bananas",
   "problemNumber": "875",
-  "submissionDate": "2026-08-08T15:39:22.508Z",
-  "submissionUrl": "https://leetcode.com/problems/koko-eating-bananas/"
+  "submissionDate": "2026-08-08T15:47:41.784Z",
+  "submissionUrl": "https://leetcode.com/problems/koko-eating-bananas/submissions/2099287780/"
 }
